@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum JS2 Fatimah</title>
+  </head>
+  <body>
+    <h2>Menghitung Kurs Rupiah</h2>
+    <table>
+      <tr>
+        <td>
+          <input
+            type="text"
+            name="dollar"
+            id="dollar"
+            placeholder="Masukkan Nilai Kurs Dollar"
+          />
+        </td>
+        <td><button onclick="hitungKurs()">Hitung</button></td>
+      </tr>
+      <tr>
+        <td>Hasil :</td>
+        <td>
+          <p id="hasil"><b>Rp 0,-</b></p>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function numberWithDots(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      function hitungKurs() {
+        let rupiah = 14650;
+        let dollar = parseFloat(document.getElementById("dollar").value);
+
+        let hasil = dollar * rupiah;
+        document.getElementById("hasil").innerHTML = `<b>Rp ${numberWithDots(
+          hasil
+        )},-</b>`;
+      }
+    </script>
+  </body>
+</html>

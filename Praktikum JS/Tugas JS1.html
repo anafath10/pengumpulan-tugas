@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum JS1 Fatimah</title>
+  </head>
+  <body>
+    <form name="lingkaran">
+      <table>
+        <tr>
+          <td><label for="radius">Jari-jari lingkaran</label></td>
+          <td>:</td>
+          <td>
+            <input
+              type="text"
+              id="radius"
+              name="radius"
+              placeholder="Masukkan Angka"
+            />
+          </td>
+          <td>
+            <button type="button" onclick="hitungLuasKelilingLingkaran()">
+              Hitung
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <p><u>Hasil</u></p>
+    <p id="hasilKeliling"></p>
+    <p id="hasilLuas"></p>
+    <script src="script.js"></script>
+  </body>
+</html>

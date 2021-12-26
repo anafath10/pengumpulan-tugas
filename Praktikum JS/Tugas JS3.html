@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum JS3 Fatimah</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Menghitung Biaya Parkir</h2>
+
+    <label for="jmasuk">Jam Masuk: </label>
+    <input type="text" id="jmasuk" name="jmasuk" style="margin-bottom: 10px" />
+    <br />
+    <label for="jkeluar">Jam Keluar: </label>
+    <input
+      type="text"
+      name="jkeluar"
+      id="jkeluar"
+      style="margin-bottom: 10px"
+    />
+    <button onclick="hitungBiaya()">Hitung</button>
+
+    <br /><br />
+
+    <table style="width: 50%" id="dataparkir">
+      <tr>
+        <th>Jam Masuk</th>
+        <th>Jam Keluar</th>
+        <th>Lama</th>
+        <th>Keluar Biaya</th>
+      </tr>
+    </table>
+
+    <script>
+      function numberWithDots(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      function hitungBiaya() {
+        let table = document.getElementById("dataparkir");
+        let row = table.insertRow(1);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
+        let jamMasuk = parseFloat(document.getElementById("jmasuk").value);
+        let jamKeluar = parseFloat(document.getElementById("jkeluar").value);
+
+        let totalJamParkir = jamKeluar - jamMasuk;
+        let hasil = 3000;
+
+        if (totalJamParkir <= 2) {
+          cell1.innerHTML = jamMasuk;
+          cell2.innerHTML = jamKeluar;
+          cell3.innerHTML = `${totalJamParkir} jam`;
+          cell4.innerHTML = `<b>Rp ${numberWithDots(hasil)},-</b>`;
+        } else {
+          cell1.innerHTML = jamMasuk;
+          cell2.innerHTML = jamKeluar;
+          cell3.innerHTML = `${totalJamParkir} jam`;
+          cell4.innerHTML = `<b>Rp ${numberWithDots(
+            (totalJamParkir - 3) * 1000 + hasil
+          )},-</b>`;
+        }
+      }
+    </script>
+  </body>
+</html>
